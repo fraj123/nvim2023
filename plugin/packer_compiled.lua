@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/fmejia/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["filetype.nvim"] = {
+    loaded = true,
+    path = "/home/fmejia/.local/share/nvim/site/pack/packer/start/filetype.nvim",
+    url = "https://github.com/nathom/filetype.nvim"
+  },
   gruvbox = {
     loaded = true,
     path = "/home/fmejia/.local/share/nvim/site/pack/packer/start/gruvbox",

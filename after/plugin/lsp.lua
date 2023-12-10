@@ -2,6 +2,13 @@
 local lspconfig = require('lspconfig')
 lspconfig.pyright.setup {}
 lspconfig.lua_ls.setup{}
+lspconfig.intelephense.setup{}
+lspconfig.terraformls.setup{
+    filetypes = {
+        "terraform",
+        "tf"
+    }
+}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
