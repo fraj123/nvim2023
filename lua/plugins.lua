@@ -52,7 +52,7 @@ return require('packer').startup(function(use)
         end
     })
 
-    use("nathom/filetype.nvim")
+    --use("nathom/filetype.nvim")
 
   end
 )
