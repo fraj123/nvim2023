@@ -10,6 +10,7 @@ vim.o.smartindent = 2
 vim.o.mouse=nicr
 
 vim.o.background = "dark"
+vim.o.termguicolors = true
 vim.cmd([[colorscheme gruvbox]])
 
 vim.opt.termguicolors = true

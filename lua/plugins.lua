@@ -35,7 +35,12 @@ return require('packer').startup(function(use)
         }
     }
 
+    -- Themes
     use 'morhetz/gruvbox'
+    use 'jacoborus/tender.vim'
+    use 'rmehri01/onenord.nvim'
+    use 'patstockwell/vim-monokai-tasty'
+
     use 'nvim-lualine/lualine.nvim'
     use 'christoomey/vim-tmux-navigator'
 
@@ -63,6 +68,13 @@ return require('packer').startup(function(use)
     })
 
     use 'barrett-ruth/live-server.nvim'
+
+    use {
+      'numToStr/Comment.nvim',
+      config = function()
+        require('Comment').setup()
+      end
+    }
 
     --use 'mattn/emmet-vim'
     --use("nathom/filetype.nvim")
