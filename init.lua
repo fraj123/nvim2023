@@ -7,6 +7,8 @@ vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.smartindent = 2
 
+vim.o.mouse=nicr
+
 vim.o.background = "dark"
 vim.cmd([[colorscheme gruvbox]])
 
