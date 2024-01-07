@@ -56,4 +56,19 @@ tar -xzf lua-language-server-3.7.3-linux-x64.tar.gz -C lua-language-server/
 sudo mv lua-language-server /opt/
 sudo ln -s /opt/lua-language-server/bin/lua-language-server /usr/local/bin/lua-language-server
 ```
-
+## Clipboard
+To enable clipboard you have to follow the steps below
+1. Identify which session you have
+```bash
+env | grep -E -i 'x11|xorg|wayland'
+```
+2. Install the correct version of Clipboard
+x11
+```bash
+sudo apt install xclip
+```
+Wayland 
+```bash
+sudo apt install wl-clipboard
+```
+3. Now you can use copy with `"+y` combination keys
