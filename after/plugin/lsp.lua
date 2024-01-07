@@ -1,5 +1,9 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
+--local configs = require('lspconfig/configs')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 lspconfig.pyright.setup {}
 lspconfig.lua_ls.setup{}
 lspconfig.intelephense.setup{}
@@ -10,6 +14,46 @@ lspconfig.terraformls.setup{
     }
 }
 lspconfig.bashls.setup{}
+lspconfig.tsserver.setup{
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "javascript.jsx",
+    "typescript",
+    "typescriptreact",
+    "typescript.tsx"
+  }
+}
+lspconfig.gopls.setup{
+  settings = {
+    gopls = {
+      experimentalPostfixCompletions = true,
+      analyses = {
+        unusedparams = true,
+        shadow = true
+      },
+      staticcheck = true,
+      gofumpt = true,
+    },
+  },
+  init_options = {
+    usePlaceholders = true,
+  }
+}
+lspconfig.emmet_ls.setup({
+    -- on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "css", "eruby", "html", "less", "sass", "scss", "svelte", "pug", "vue" },
+    init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+          ["bem.enabled"] = true,
+        },
+      },
+    }
+})
+
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

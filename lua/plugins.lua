@@ -29,7 +29,9 @@ return require('packer').startup(function(use)
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
-            'hrsh7th/cmp-cmdline'
+            'hrsh7th/cmp-cmdline',
+            'hrsh7th/cmp-git',
+            'saadparwaiz1/cmp_luasnip'
         }
     }
 
@@ -52,6 +54,17 @@ return require('packer').startup(function(use)
         end
     })
 
+    use({
+      "L3MON4D3/LuaSnip",
+      -- follow latest release.
+      tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+      -- install jsregexp (optional!:).
+      run = "make install_jsregexp"
+    })
+
+    use 'barrett-ruth/live-server.nvim'
+
+    --use 'mattn/emmet-vim'
     --use("nathom/filetype.nvim")
 
   end
