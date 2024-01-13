@@ -37,12 +37,13 @@ return require('packer').startup(function(use)
 
     -- Themes
     use 'morhetz/gruvbox'
-    use 'jacoborus/tender.vim'
-    use 'rmehri01/onenord.nvim'
-    use 'patstockwell/vim-monokai-tasty'
 
-    use 'nvim-lualine/lualine.nvim'
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
     use 'christoomey/vim-tmux-navigator'
+    use "EdenEast/nightfox.nvim" 
 
     use {
         "windwp/nvim-autopairs",
