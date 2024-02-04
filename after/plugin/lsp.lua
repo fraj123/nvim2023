@@ -7,6 +7,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.pyright.setup {}
 lspconfig.lua_ls.setup{}
 lspconfig.intelephense.setup{}
+lspconfig.jdtls.setup{}
 lspconfig.terraformls.setup{
     filetypes = {
         "terraform",
@@ -53,6 +54,7 @@ lspconfig.emmet_ls.setup({
       },
     }
 })
+
 
 
 -- Global mappings.
