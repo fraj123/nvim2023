@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
     }
 
     use "neovim/nvim-lspconfig"
+    use "github/copilot.vim"
 
     use {
         'hrsh7th/nvim-cmp',
