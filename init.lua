@@ -15,4 +15,7 @@ vim.cmd([[colorscheme gruvbox]])
 
 vim.opt.termguicolors = true
 
+-- copilot configuration
+vim.g.copilot_assume_mapped = true
+
 require('plugins')

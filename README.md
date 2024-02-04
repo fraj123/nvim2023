@@ -72,3 +72,9 @@ Wayland
 sudo apt install wl-clipboard
 ```
 3. Now you can use copy with `"+y` combination keys
+## Enable Copilot
+1. Install Copilot
+```bash
+git clone https://github.com/github/copilot.vim.git \
+  ~/.config/nvim/pack/github/start/copilot.vim
+```
