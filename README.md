@@ -16,8 +16,8 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 ## Check dependencies of Telescope
 ### Debian Distribution
 ```bash
-sudo apt install -Y ripgrep
-sudo apt install -Y fd-find
+sudo apt install -y ripgrep
+sudo apt install -y fd-find
 ```
 
 ### Fedora Distribution
@@ -30,7 +30,8 @@ sudo dnf install fd-find -Y
 sudo pacman -S ripgrep
 sudo pacman -S fd
 ```
-
+## Before Packer Installation
+We need to move the line 'vim.cmd [[packadd packer.nvim]]' on `init.lua` file
 ## Run packer and treesitter in nvim
 ```
 PackerSync
