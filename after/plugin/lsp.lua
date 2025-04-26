@@ -15,7 +15,7 @@ lspconfig.terraformls.setup{
     }
 }
 lspconfig.bashls.setup{}
-lspconfig.tsserver.setup{
+lspconfig.ts_ls.setup{
   filetypes = {
     "javascript",
     "javascriptreact",
