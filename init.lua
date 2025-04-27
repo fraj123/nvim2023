@@ -7,7 +7,7 @@ vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.smartindent = true
 
-vim.o.mouse=nicr
+vim.o.mouse=""
 
 vim.o.background = "dark"
 vim.o.termguicolors = true

@@ -49,6 +49,10 @@ wget https://releases.hashicorp.com/terraform-ls/0.32.3/terraform-ls_0.32.3_linu
 unzip terraform-ls_0.32.3_linux_amd64.zip
 sudo mv terraform-ls /usr/local/bin
 ```
+### Install python server
+```
+npm i -g pyright
+```
 ### Install lua-language-server
 ```bash
 curl -L -O https://github.com/LuaLS/lua-language-server/releases/download/3.7.3/lua-language-server-3.7.3-linux-x64.tar.gz
@@ -79,3 +83,4 @@ sudo apt install wl-clipboard
 git clone https://github.com/github/copilot.vim.git \
   ~/.config/nvim/pack/github/start/copilot.vim
 ```
+2. Login to Copilot
