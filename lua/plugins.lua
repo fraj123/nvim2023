@@ -25,6 +25,14 @@ return require('packer').startup(function(use)
     use "github/copilot.vim"
 
     use {
+        "CopilotC-Nvim/CopilotChat.nvim",
+        requires = {
+            { "nvim-lua/plenary.nvim", branch = "master" },
+        },
+        run = "make tiktoken",
+    }
+
+    use {
         'hrsh7th/nvim-cmp',
         requires = {
             'hrsh7th/cmp-nvim-lsp',
