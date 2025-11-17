@@ -2,4 +2,4 @@ plugin/packer_compiled.lua
 # Ignorar los plugins instalados
 pack/
 plugged/
-
+.nvimlog
