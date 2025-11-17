@@ -1,61 +1,69 @@
--- Setup language servers.
-local lspconfig = require('lspconfig')
---local configs = require('lspconfig/configs')
+local is_modern = vim.fn.has('nvim-0.11') == 1
+
+if not is_modern or not (vim.lsp and vim.lsp.config and vim.lsp.enable) then
+  vim.notify(
+    '[lsp] This configuration requires Neovim 0.11+. Please upgrade to use vim.lsp.config.',
+    vim.log.levels.ERROR
+  )
+  return
+end
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-lspconfig.pyright.setup {}
-lspconfig.lua_ls.setup{}
-lspconfig.intelephense.setup{}
-lspconfig.jdtls.setup{}
-lspconfig.terraformls.setup{
+local servers = {
+  pyright = true,
+  lua_ls = true,
+  intelephense = true,
+  jdtls = true,
+  terraformls = {
+    filetypes = { 'terraform', 'tf' },
+  },
+  bashls = true,
+  ts_ls = {
     filetypes = {
-        "terraform",
-        "tf"
-    }
-}
-lspconfig.bashls.setup{}
-lspconfig.ts_ls.setup{
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx"
-  }
-}
-lspconfig.gopls.setup{
-  settings = {
-    gopls = {
-      experimentalPostfixCompletions = true,
-      analyses = {
-        unusedparams = true,
-        shadow = true
-      },
-      staticcheck = true,
-      gofumpt = true,
+      'javascript',
+      'javascriptreact',
+      'javascript.jsx',
+      'typescript',
+      'typescriptreact',
+      'typescript.tsx',
     },
   },
-  init_options = {
-    usePlaceholders = true,
-  }
-}
-lspconfig.emmet_ls.setup({
-    -- on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = { "css", "eruby", "html", "less", "sass", "scss", "svelte", "pug", "vue" },
+  gopls = {
+    settings = {
+      gopls = {
+        experimentalPostfixCompletions = true,
+        analyses = {
+          unusedparams = true,
+          shadow = true,
+        },
+        staticcheck = true,
+        gofumpt = true,
+      },
+    },
+    init_options = {
+      usePlaceholders = true,
+    },
+  },
+  emmet_ls = {
+    filetypes = { 'css', 'eruby', 'html', 'less', 'sass', 'scss', 'svelte', 'pug', 'vue' },
     init_options = {
       html = {
         options = {
-          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-          ["bem.enabled"] = true,
+          ['bem.enabled'] = true,
         },
       },
-    }
-})
+    },
+  },
+}
 
-
+for name, opts in pairs(servers) do
+  local config = opts == true and {} or vim.deepcopy(opts)
+  config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
+  vim.lsp.config(name, config)
+  vim.lsp.enable(name)
+end
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -79,7 +87,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', '<C-h>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<C-p>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
     vim.keymap.set('n', '<space>wl', function()

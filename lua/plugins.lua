@@ -30,6 +30,11 @@ return require('packer').startup(function(use)
             { "nvim-lua/plenary.nvim", branch = "master" },
         },
         run = "make tiktoken",
+        config = function()
+            require("CopilotChat").setup({
+                -- Your custom configuration goes here
+            })
+        end,
     }
 
     use {
